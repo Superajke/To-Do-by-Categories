@@ -1,0 +1,29 @@
+.add__popup {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 100;
+}
+
+.add__form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: black;
+    gap: 1.5rem;
+    padding: 2rem;
+    border-radius: 1rem;
+}
+
+.popup__buttons{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
