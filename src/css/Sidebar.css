@@ -4,17 +4,50 @@
   position: sticky;
   display: flex;
   flex-direction: column;
-  background-color: black;
-  padding-top: 2rem;
-  color: white;
-  align-items: center;
+  background: rgba(0, 0, 0, 0.1);
+  box-shadow: 0.1rem 0.1rem 0.6rem black;
+  border: 1px solid black;
+  color: black;
+}
+
+.sidebar__title {
+  font-size: 3.5rem;
+  text-align: center;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  border-bottom: 2px solid black;
+  text-shadow: 0.2rem 0.2rem 1rem #5c5c5c;
 }
 
 .sidebar__list {
   list-style: none;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;  
+  justify-content: space-between;
+  height: 100%;
 }
 
 .sidebar__categories {
   cursor: pointer;
-  margin: 1rem;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: black;
+  padding: 1rem;
+  max-width: 80%;
 }
+
+.sidebar__button {
+  margin: 0 auto;
+}
+
+.sidebar__designer{
+  margin-bottom: 1.25rem;
+}
+
+.sidebar__designer span{
+  color: rgb(134, 12, 249);
+  font-size: 1.8rem;
+}
+

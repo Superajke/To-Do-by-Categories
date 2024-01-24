@@ -2,6 +2,7 @@ import { createContext, useState, useContext, useEffect } from "react";
 
 export const CategoriesContext = createContext();
 
+// eslint-disable-next-line react-refresh/only-export-components
 export const useCategories = () => {
   const context = useContext(CategoriesContext);
   if (!context) {
@@ -12,6 +13,7 @@ export const useCategories = () => {
   return context;
 };
 
+// eslint-disable-next-line react/prop-types
 export const CategoriesProvider = ({ children }) => {
   const [categories, setCategories] = useState([]);
 

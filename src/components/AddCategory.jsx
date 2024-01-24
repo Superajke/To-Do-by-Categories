@@ -15,13 +15,14 @@ function AddCategory() {
 
   return (
     <section className="add">
-      <button
-        onClick={() => {
-          setPopup(!popup);
-        }}
-      >
-        Add Category
-      </button>
+        <button
+          onClick={() => {
+            setPopup(!popup);
+          }}
+          className="add__button"
+        >
+          Añadir Categoria
+        </button>
       {popup && (
         <section className="add__popup">
           <form onSubmit={onSubmit} className="add__form">
