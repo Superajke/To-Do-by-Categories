@@ -1,6 +1,18 @@
-import { useEffect, useState } from "react";
+import { createContext, useState, useContext, useEffect } from "react";
 
-const useCategories = () => {
+export const CategoriesContext = createContext();
+
+export const useCategories = () => {
+  const context = useContext(CategoriesContext);
+  if (!context) {
+    throw new Error(
+      "useCategories debe estar dentro del proveedor CategoriesContext"
+    );
+  }
+  return context;
+};
+
+export const CategoriesProvider = ({ children }) => {
   const [categories, setCategories] = useState([]);
 
   useEffect(() => {
@@ -40,13 +52,21 @@ const useCategories = () => {
     const storedData = localStorage.getItem("subjects");
     let currentData = storedData ? JSON.parse(storedData) : [];
 
-    const updatedData = currentData.filter((categoria) => categoria.cat_id !== id);
+    const updatedData = currentData.filter(
+      (categoria) => categoria.cat_id !== id
+    );
 
     localStorage.setItem("subjects", JSON.stringify(updatedData));
     setCategories(updatedData);
   };
 
-  return { categories, createCategories, deleteCategory };
+  return (
+    <CategoriesContext.Provider
+      value={{ categories, createCategories, deleteCategory }}
+    >
+      {children}
+    </CategoriesContext.Provider>
+  );
 };
 
-export default useCategories;
+export default CategoriesContext;

@@ -1,4 +1,4 @@
-import useCategories from "../hooks/useCategories.jsx";
+import { useCategories } from "../context/categoriesContext.jsx";
 import { useNavigate } from "react-router-dom";
 import AddCategory from "./AddCategory";
 import "../css/sidebar.css";

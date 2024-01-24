@@ -1,5 +1,5 @@
 import "../css/toDo.css";
-import useCategories from "../hooks/useCategories";
+import { useCategories } from "../context/categoriesContext.jsx";
 import { useParams } from "react-router-dom";
 
 function ToDoCategory() {
