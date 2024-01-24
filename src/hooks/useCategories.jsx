@@ -4,13 +4,6 @@ const useCategories = () => {
   const [categories, setCategories] = useState([]);
 
   useEffect(() => {
-    console.log("Cambié");
-    console.log("****");
-    console.log(categories);
-    console.log("****");
-  }, [categories]);
-
-  useEffect(() => {
     const getCategories = () => {
       const subjects = localStorage.getItem("subjects");
       const parsedCategories = subjects ? JSON.parse(subjects) : [];
@@ -27,13 +20,13 @@ const useCategories = () => {
 
     const newCategoryId =
       currentCategories.length > 0
-        ? currentCategories[currentCategories.length - 1].id + 1
+        ? currentCategories[currentCategories.length - 1].cat_id + 1
         : 1;
     const updatedCategories = [
       ...currentCategories,
       {
-        id: newCategoryId,
-        nombre: category.category_name,
+        cat_id: newCategoryId,
+        cat_nombre: category.category_name,
         fechaCreacion: new Date().toISOString(),
         fechaModificacion: new Date().toISOString(),
         todos: [],
@@ -47,7 +40,7 @@ const useCategories = () => {
     const storedData = localStorage.getItem("subjects");
     let currentData = storedData ? JSON.parse(storedData) : [];
 
-    const updatedData = currentData.filter((categoria) => categoria.id !== id);
+    const updatedData = currentData.filter((categoria) => categoria.cat_id !== id);
 
     localStorage.setItem("subjects", JSON.stringify(updatedData));
     setCategories(updatedData);

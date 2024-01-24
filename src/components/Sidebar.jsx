@@ -1,14 +1,11 @@
 import useCategories from "../hooks/useCategories.jsx";
+import { useNavigate } from "react-router-dom";
 import AddCategory from "./AddCategory";
 import "../css/sidebar.css";
-import { useEffect } from "react";
 
 function Sidebar() {
+  const navigate = useNavigate();
   const { categories, deleteCategory } = useCategories();
-
-  useEffect(() => {
-    console.log("CAMBIÓ");
-  }, [categories]);
 
   return (
     <nav className="sidebar">
@@ -16,10 +13,17 @@ function Sidebar() {
       <ul className="sidebar__list">
         {categories.length > 0 ? (
           categories.map((categoria) => (
-            <div key={categoria.id}>
-              <li className="sidebar__categories">{categoria.nombre}</li>
+            <div key={categoria.cat_id}>
               <li
-                onClick={() => deleteCategory(categoria.id)}
+                onClick={() => {
+                  navigate(`/todo/${categoria.cat_id}`);
+                }}
+                className="sidebar__categories"
+              >
+                {categoria.cat_nombre}
+              </li>
+              <li
+                onClick={() => deleteCategory(categoria.cat_id)}
                 style={{ cursor: "pointer" }}
               >
                 X

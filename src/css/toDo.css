@@ -1,0 +1,12 @@
+.todo {
+  background-color: white;
+  height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.todo__title {
+    font-size: 3rem;
+    margin: 2rem;
+}
