@@ -1,6 +1,5 @@
 .sidebar {
   height: 100%;
-  width: 20rem;
   position: sticky;
   display: flex;
   flex-direction: column;
@@ -12,11 +11,13 @@
 
 .sidebar__title {
   font-size: 3.5rem;
+  font-weight: bold;
   text-align: center;
   padding: 2rem;
   margin-bottom: 2rem;
   border-bottom: 2px solid black;
-  text-shadow: 0.2rem 0.2rem 1rem #5c5c5c;
+  text-shadow: 0.2rem 0.2rem 1rem #818181;
+  cursor: pointer;
 }
 
 .sidebar__list {
@@ -24,30 +25,63 @@
   width: 100%;
   display: flex;
   flex-direction: column;
-  align-items: center;  
+  align-items: center;
   justify-content: space-between;
   height: 100%;
 }
 
-.sidebar__categories {
+.categories__list{
+  width: 100%;
+}
+
+.sidebar__category, .sidebar__categories_title {
   cursor: pointer;
   font-size: 2rem;
   margin-bottom: 1rem;
   color: black;
   padding: 1rem;
   max-width: 80%;
+  border-bottom: 2px solid rgba(255, 255, 255, 0);
+  transition: all 0.35s ease-in-out;
+}
+
+.sidebar__categories{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.sidebar__categories_title{
+  font-weight: bold;
+  font-size: 2.2rem;
+  cursor: default;
+
+}
+
+.sidebar__category:hover {
+  border-bottom: 2px solid black;
+  scale: 1.1;
+  margin-left: 1.25rem;
+  transition: all 0.35s ease-in-out;
 }
 
 .sidebar__button {
   margin: 0 auto;
+
 }
 
-.sidebar__designer{
+.sidebar__designer {
   margin-bottom: 1.25rem;
+  font-weight: bold;
 }
 
-.sidebar__designer span{
+.sidebar__designer span {
   color: rgb(134, 12, 249);
   font-size: 1.8rem;
 }
 
+.sidebar__nocat{
+  text-align: center;
+  font-size: 1.8rem;
+  margin-bottom: 2rem;
+}

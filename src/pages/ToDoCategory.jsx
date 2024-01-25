@@ -1,8 +1,9 @@
 import "../css/toDo.css";
 import { useCategories } from "../context/categoriesContext.jsx";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 function ToDoCategory() {
+  const navigate = useNavigate();
   const cat = useParams();
   const { categories } = useCategories();
 
@@ -10,9 +11,13 @@ function ToDoCategory() {
     (categoria) => categoria.cat_id === parseInt(cat.cat_id)
   );
 
+  if (getCategory === undefined) {
+    navigate("/")
+  }
+
   return (
     <section className="todo">
-      <h1 className="todo__title">Lista To Do - {getCategory?.cat_nombre} -</h1>
+      <h1 className="todo__title">To Do {getCategory?.cat_nombre}</h1>
       <p>Hola</p>
     </section>
   );

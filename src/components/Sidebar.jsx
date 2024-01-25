@@ -9,30 +9,35 @@ function Sidebar() {
 
   return (
     <nav className="sidebar">
-      <h1 className="sidebar__title">To do by Category</h1>
+      <h1 onClick={() => navigate("/")} className="sidebar__title">
+        To do by Category
+      </h1>
       <ul className="sidebar__list">
-        <section>
+        <section className="sidebar__categories">
+          <li className="sidebar__categories_title">Categorías</li>
           {categories.length > 0 ? (
             categories.map((categoria) => (
-              <div key={categoria.cat_id}>
+              <div className="categories__list" key={categoria.cat_id}>
                 <li
                   onClick={() => {
                     navigate(`/todo/${categoria.cat_id}`);
                   }}
-                  className="sidebar__categories"
+                  className="sidebar__category"
                 >
                   {categoria.cat_nombre}
                 </li>
               </div>
             ))
           ) : (
-            <p>No hay categorias</p>
+            <p className="sidebar__nocat">No hay categorias disponibles</p>
           )}
           <li className="sidebar__button">
             <AddCategory />
           </li>
         </section>
-        <li className="sidebar__designer">Diseñado por <br/> <span>Samuel Ignacio Arango</span></li>
+        <li className="sidebar__designer">
+          Diseñado por <br /> <span>Samuel Ignacio Arango</span>
+        </li>
       </ul>
     </nav>
   );
