@@ -15,7 +15,7 @@ git clone https://github.com/tu-usuario/tu-proyecto.git
 2. Navega al directorio del proyecto:
 
 ```bash
-cd to-do-by-subject
+cd To-Do-By-Categories
 ```
 
 3. Instala las dependencias utilizando npm:
