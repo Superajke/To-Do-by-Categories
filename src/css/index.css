@@ -1,15 +1,49 @@
+@font-face {
+  font-family: "Nunito";
+  src: url("../fonts/Nunito-Regular.ttf");
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: "Nunito";
+  src: url("../fonts/Nunito-Bold.ttf");
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: "Nunito";
+  src: url("../fonts/Nunito-light.ttf");
+  font-weight: lighter;
+}
+
+@font-face {
+  font-family: "Nunito";
+  src: url("../fonts/Nunito-SemiBold.ttf");
+  font-weight: 600;
+}
+
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
 }
 
-html{
+html {
   font-size: 62.5%;
 }
 
 body {
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto Condensed", sans-serif;
   font-size: 1.6rem;
-  background-color: #f5f5f5;
+  background-color: white;
+}
+
+.App {
+  display: grid;
+  grid-template-columns: 22rem 1fr;
+}
+
+.page {
+  background-image: linear-gradient(135deg,#efefef 0%, #bdbdbd 60%);
+  height: 100dvh;
 }

@@ -1,7 +1,7 @@
 import { useForm } from "react-hook-form";
 import "../css/addCategory.css";
 import { useState } from "react";
-import useCategories from "../hooks/useCategories.jsx";
+import { useCategories } from "../context/categoriesContext.jsx";
 
 function AddCategory() {
   const { register, handleSubmit } = useForm();
@@ -15,13 +15,14 @@ function AddCategory() {
 
   return (
     <section className="add">
-      <button
-        onClick={() => {
-          setPopup(!popup);
-        }}
-      >
-        Add Category
-      </button>
+        <button
+          onClick={() => {
+            setPopup(!popup);
+          }}
+          className="add__button"
+        >
+          Añadir Categoria
+        </button>
       {popup && (
         <section className="add__popup">
           <form onSubmit={onSubmit} className="add__form">

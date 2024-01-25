@@ -1,14 +1,21 @@
-import { useEffect, useState } from "react";
+import { createContext, useState, useContext, useEffect } from "react";
 
-const useCategories = () => {
+export const CategoriesContext = createContext();
+
+// eslint-disable-next-line react-refresh/only-export-components
+export const useCategories = () => {
+  const context = useContext(CategoriesContext);
+  if (!context) {
+    throw new Error(
+      "useCategories debe estar dentro del proveedor CategoriesContext"
+    );
+  }
+  return context;
+};
+
+// eslint-disable-next-line react/prop-types
+export const CategoriesProvider = ({ children }) => {
   const [categories, setCategories] = useState([]);
-
-  useEffect(() => {
-    console.log("Cambié");
-    console.log("****");
-    console.log(categories);
-    console.log("****");
-  }, [categories]);
 
   useEffect(() => {
     const getCategories = () => {
@@ -27,13 +34,13 @@ const useCategories = () => {
 
     const newCategoryId =
       currentCategories.length > 0
-        ? currentCategories[currentCategories.length - 1].id + 1
+        ? currentCategories[currentCategories.length - 1].cat_id + 1
         : 1;
     const updatedCategories = [
       ...currentCategories,
       {
-        id: newCategoryId,
-        nombre: category.category_name,
+        cat_id: newCategoryId,
+        cat_nombre: category.category_name,
         fechaCreacion: new Date().toISOString(),
         fechaModificacion: new Date().toISOString(),
         todos: [],
@@ -47,13 +54,21 @@ const useCategories = () => {
     const storedData = localStorage.getItem("subjects");
     let currentData = storedData ? JSON.parse(storedData) : [];
 
-    const updatedData = currentData.filter((categoria) => categoria.id !== id);
+    const updatedData = currentData.filter(
+      (categoria) => categoria.cat_id !== id
+    );
 
     localStorage.setItem("subjects", JSON.stringify(updatedData));
     setCategories(updatedData);
   };
 
-  return { categories, createCategories, deleteCategory };
+  return (
+    <CategoriesContext.Provider
+      value={{ categories, createCategories, deleteCategory }}
+    >
+      {children}
+    </CategoriesContext.Provider>
+  );
 };
 
-export default useCategories;
+export default CategoriesContext;
