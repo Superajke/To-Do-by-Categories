@@ -1,0 +1,20 @@
+.sidebar {
+  height: 100%;
+  width: 20rem;
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  background-color: black;
+  padding-top: 2rem;
+  color: white;
+  align-items: center;
+}
+
+.sidebar__list {
+  list-style: none;
+}
+
+.sidebar__categories {
+  cursor: pointer;
+  margin: 1rem;
+}
