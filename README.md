@@ -1,4 +1,4 @@
-# To-Do by Category
+# To-Do by Categories
 
 Este proyecto es una aplicación simple de lista de tareas organizadas por categorías. Cada categoría puede contener múltiples tareas, permitiéndote organizar tus actividades de manera eficiente.
 
